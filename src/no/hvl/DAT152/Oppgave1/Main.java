@@ -6,7 +6,11 @@ public class Main {
 
     public static void main(String[] args) {
         ResourceBundle stringsBundle;
+		TerminalInterface i = new TerminalInterface();
 
+		i.writeLine("Virker dette?");
+		String s = i.query("Skriv en streng:");
+		System.out.println(s);
     }
 
 	/**
