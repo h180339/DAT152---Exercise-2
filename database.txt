@@ -1,0 +1,1 @@
+1;White Coffe Cup;6.50;img/bilde.jpg;prodDesc
