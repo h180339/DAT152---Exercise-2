@@ -1,5 +1,6 @@
 package no.hvl.DAT152.Oppgave1;
 
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -15,7 +16,9 @@ public class Main {
 		for (Product product : prodList) {
 			System.out.println(bundle.getString(product.getResourceKey()));
 		}
+		System.out.println(coyprightString());
     }
+
 
 	/**
 	 * @param input the input string
@@ -33,5 +36,16 @@ public class Main {
 		} else {
 			return input;
 		}
+	}
+
+	/**
+	 * @return Returns a string with the correct roman numerals for the year 2008 - current local year.
+	 */
+	private static String coyprightString() {
+		int year = Year.now().getValue();
+
+		String romanYear = (String) RomanNumber.toRoman(year);
+
+		return "© since MMVIII - " + romanYear + " HVL.";
 	}
 }
