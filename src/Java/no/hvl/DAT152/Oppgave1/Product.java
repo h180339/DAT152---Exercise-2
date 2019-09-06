@@ -1,6 +1,9 @@
 package no.hvl.DAT152.Oppgave1;
 
 
+/**
+ * Class that describes a product
+ */
 public class Product {
     private String pNo;
     private String pName;
