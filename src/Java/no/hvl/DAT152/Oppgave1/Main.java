@@ -1,13 +1,20 @@
 package no.hvl.DAT152.Oppgave1;
 
+import java.util.ArrayList;
+import java.util.Locale;
 import java.util.ResourceBundle;
+
 
 public class Main {
 
     public static void main(String[] args) {
         DAO dao = new DAO();
-        dao.getProduct();
-
+        Locale locale = new Locale("ES");
+		ResourceBundle bundle = ResourceBundle.getBundle("productStrings", locale);
+		ArrayList<Product> prodList = dao.getAllProducts();
+		for (Product product : prodList) {
+			System.out.println(bundle.getString(product.getResourceKey()));
+		}
     }
 
 	/**

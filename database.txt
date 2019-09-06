@@ -1,1 +1,3 @@
-1;White Coffe Cup;6.50;img/bilde.jpg;prodDesc
+1;White Coffee Cup (TM);6.50;img/WhiteCup.jpg;whiteProdDesc
+1;Black Coffe Cup (TM);4.75;img/BlackCup.jpg;blackProdDesc
+1;Yellow Coffee Cup;5.50;img/YellowCup.jpg;yellowProdDesc

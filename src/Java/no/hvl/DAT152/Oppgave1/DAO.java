@@ -5,14 +5,21 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Database handler
+ */
 public class DAO {
 
-	ArrayList<Product> products = new ArrayList<>();
 	private static final String FILENAME = "database.txt";
 
 
-	public Product getProduct() {
+    /**
+     * @return list of all products in database
+     */
+	public ArrayList<Product> getAllProducts() {
+        ArrayList<Product> products = new ArrayList<>();
         try {
+
             FileReader fileReader = new FileReader(FILENAME);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
@@ -21,15 +28,11 @@ public class DAO {
             while ((line = bufferedReader.readLine()) != null) {
                 String [] a = line.split(";");
                 products.add(new Product(a[0], a[1], a[2], a[3], a[4]));
-                for (Product product : products) {
-                    System.out.println(product);
-                }
-
-            }
+                            }
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+        return products;
     }
 }
