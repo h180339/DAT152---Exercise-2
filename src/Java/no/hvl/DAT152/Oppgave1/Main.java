@@ -38,7 +38,7 @@ public class Main {
 		System.out.println("--------------------------------------------------------");
 		for (Product p : prodList) {
 			System.out.println("Nr: " + p.getpNo());
-			System.out.println(bundle.getString(p.getpName()) + ": \n" + "Price: " + bundle.getString(p.getPriceInEuro()) + "\n" + bundle.getString(p.getResourceKey()));
+			System.out.println(bundle.getString(p.getpName()) + ": \n" + bundle.getString(p.getPriceInEuro()) + "\n" + bundle.getString(p.getResourceKey()));
 			System.out.println("--------------------------------------------------------");
 		}
 
