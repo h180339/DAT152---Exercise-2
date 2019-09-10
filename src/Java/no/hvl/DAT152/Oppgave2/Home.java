@@ -3,10 +3,7 @@ package no.hvl.DAT152.Oppgave2;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -15,17 +12,17 @@ import java.util.ResourceBundle;
 public class Home extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String lang = req.getParameter("lang");
-        HttpSession session = req.getSession(true);
+        Cookie[] cookies = req.getCookies();
+        Cookie langCookie = CookieHelper.findCookie(cookies, "lang");
+        Locale locale = req.getLocale();
+        ResourceBundle bundle = ResourceBundle.getBundle("productStrings", locale);
 
-        if (lang != null) {
-            Locale locale = new Locale(lang);
-            ResourceBundle bundle = ResourceBundle.getBundle("productStrings", locale);
-            session.setAttribute("locale", locale);
+        if (langCookie != null) {
+            locale = new Locale(langCookie.getValue());
+            bundle = ResourceBundle.getBundle("productStrings", locale);
             req.setAttribute("welcomeText", bundle.getString("welcomeText"));
             req.setAttribute("prod", bundle.getString("prod"));
         } else {
-            ResourceBundle bundle = ResourceBundle.getBundle("productStrings");
             req.setAttribute("welcomeText", bundle.getString("welcomeText"));
             req.setAttribute("prod", bundle.getString("prod"));
         }
@@ -34,6 +31,11 @@ public class Home extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        String wantedLang = req.getParameter("Lang");
+        Cookie cookie = new Cookie("lang", wantedLang);
+        resp.addCookie(cookie);
+        resp.sendRedirect("./home");
     }
+
+
 }

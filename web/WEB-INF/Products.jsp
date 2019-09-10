@@ -11,8 +11,17 @@
     <title>Title</title>
 </head>
 <body>
-<a href="./products?lang=nb_NO">Norsk</a>&#9<a href="./products?lang=us">Engelsk</a>&#9<a href="./products?lang=es">Spansk</a>
-<p>${text}</p>
-
+    <form method="post" class="inline">
+        <button type="submit" name="Lang" value="nb_No" class="link-button">
+            Norsk
+        </button>
+        <button type="submit" name="Lang" value="us" class="link-button">
+            Engelsk
+        </button>
+        <button type="submit" name="Lang" value="es" class="link-button">
+            Spansk
+        </button>
+    </form>
+    <p>${text}</p>
 </body>
 </html>

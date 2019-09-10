@@ -2,10 +2,7 @@ package no.hvl.DAT152.Oppgave2;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -14,29 +11,26 @@ import java.util.ResourceBundle;
 public class Products extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession(false);
-        Locale locale = (Locale) session.getAttribute("locale");
-        String lang = req.getParameter("lang");
+        Cookie[] cookies = req.getCookies();
+        Cookie langCookie = CookieHelper.findCookie(cookies, "lang");
+        Locale locale = req.getLocale();
+        ResourceBundle bundle = ResourceBundle.getBundle("productStrings", locale);
 
-        if (lang != null) {
-            locale = new Locale(lang);
-            ResourceBundle bundle = ResourceBundle.getBundle("productStrings", locale);
+        if (langCookie != null) {
+            locale = new Locale(langCookie.getValue());
+            bundle = ResourceBundle.getBundle("productStrings", locale);
             req.setAttribute("text", bundle.getString("whiteProdDesc"));
-
         } else {
-            if (locale != null) {
-                ResourceBundle bundle = ResourceBundle.getBundle("productStrings", locale);
-                req.setAttribute("text", bundle.getString("whiteProdDesc"));
-            } else {
-                ResourceBundle bundle = ResourceBundle.getBundle("productStrings");
-                req.setAttribute("text", bundle.getString("whiteProdDesc"));
-            }
+            req.setAttribute("text", bundle.getString("whiteProdDesc"));
         }
         req.getRequestDispatcher("WEB-INF/Products.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        String wantedLang = req.getParameter("Lang");
+        Cookie cookie = new Cookie("lang", wantedLang);
+        resp.addCookie(cookie);
+        resp.sendRedirect("./products");
     }
 }

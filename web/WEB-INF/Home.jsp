@@ -11,7 +11,19 @@
     <title>Home</title>
 </head>
 <body>
-    <a href="./home?lang=nb_NO">Norsk</a>&#9<a href="./home?lang=us">Engelsk</a>&#9<a href="./home?lang=es">Spansk</a>
+    <form method="post" class="inline">
+        <button type="submit" name="Lang" value="nb_No" class="link-button">
+            Norsk
+        </button>
+        <button type="submit" name="Lang" value="us">
+            Engelsk
+        </button>
+        <button type="submit" name="Lang" value="es">
+            Spansk
+        </button>
+    </form>
+
+
     <h1>Kaffekopper AS</h1>
     <img src="./assets/kopp.png">
     <br>
