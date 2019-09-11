@@ -11,6 +11,7 @@ public class TerminalInterface {
 	 * Empty constructor
 	 */
 	public TerminalInterface() {
+
 	}
 
 	/**

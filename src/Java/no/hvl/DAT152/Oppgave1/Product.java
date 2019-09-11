@@ -1,5 +1,6 @@
 package no.hvl.DAT152.Oppgave1;
 
+import java.util.ResourceBundle;
 
 /**
  * Class that describes a product
@@ -61,14 +62,7 @@ public class Product {
         this.resourceKey = resourceKey;
     }
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "pNo='" + pNo + '\'' +
-                ", pName='" + pName + '\'' +
-                ", priceInEuro='" + priceInEuro + '\'' +
-                ", imageFile='" + imageFile + '\'' +
-                ", resourceKey='" + resourceKey + '\'' +
-                '}';
+    public String toString(ResourceBundle bundle) {
+        return bundle.getString(this.getpName()) + " | " + bundle.getString(this.getPriceInEuro()) + " | " + bundle.getString(this.getResourceKey());
     }
 }

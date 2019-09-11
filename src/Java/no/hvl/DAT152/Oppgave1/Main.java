@@ -20,7 +20,7 @@ public class Main {
 		cart = addToCart(bundle, cart);
 		ArrayList<Product> cartList = cart.getCartList();
 		for (Product product : cartList) {
-			System.out.println(product);
+			System.out.println(product.toString(bundle));
 		}
 
 		System.out.println(coyprightString());
