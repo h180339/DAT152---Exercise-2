@@ -23,19 +23,23 @@
         </button>
     </form>
     <div>
+        <img src="./img/kopp.jpeg" align="left">
         <p>${whiteName}</p>
         <p>${whiteProdDesc}</p>
         <p>${whitePrice}</p>
     </div>
     <div>
+        <img src="./img/kopp.jpeg" align="left">
         <p>${blackName}</p>
         <p>${blackProdDesc}</p>
         <p>${blackPrice}</p>
     </div>
     <div>
+        <img src="./img/kopp.jpeg" align="left">
         <p>${yellowName}</p>
         <p>${yellowProdDesc}</p>
         <p>${yellowPrice}</p>
     </div>
+    <span><a href="./home">${home}Home</a></span>
 </body>
 </html>
