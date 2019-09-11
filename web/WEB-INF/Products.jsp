@@ -22,6 +22,20 @@
             Spansk
         </button>
     </form>
-    <p>${text}</p>
+    <div>
+        <p>${whiteName}</p>
+        <p>${whiteProdDesc}</p>
+        <p>${whitePrice}</p>
+    </div>
+    <div>
+        <p>${blackName}</p>
+        <p>${blackProdDesc}</p>
+        <p>${blackPrice}</p>
+    </div>
+    <div>
+        <p>${yellowName}</p>
+        <p>${yellowProdDesc}</p>
+        <p>${yellowPrice}</p>
+    </div>
 </body>
 </html>
