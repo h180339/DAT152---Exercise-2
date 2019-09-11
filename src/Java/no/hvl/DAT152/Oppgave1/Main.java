@@ -34,7 +34,7 @@ public class Main {
 	 */
 	private static Cart addToCart(ResourceBundle bundle, Cart cart) {
 		ArrayList<Product> prodList = dao.getAllProducts();
-		System.out.println("Product list to choose from:");
+		System.out.println(bundle.getString("productList"));
 		System.out.println("--------------------------------------------------------");
 		for (Product p : prodList) {
 			System.out.println("Nr: " + p.getpNo());
@@ -43,7 +43,7 @@ public class Main {
 		}
 
 		while (true) {
-			String productAnswer = ti.query("Please enter what product you want to add to cart by number (1-3)\nIf you choose not to add anything to cart enter '0'");
+			String productAnswer = ti.query(bundle.getString("addToChart") + "\n" + bundle.getString("notaddAnything"));
 			switch (productAnswer) {
 				case "1":
 					cart.addToCart(prodList.get(0));
@@ -57,15 +57,15 @@ public class Main {
 				case "0":
 					break;
 				default:
-					System.out.println("did not insert correct input");
+					System.out.println(bundle.getString("wrongInput"));
 			}
-			String continueAnswer = ti.query("Want to add new products to cart ? (y/n)");
+			String continueAnswer = ti.query(bundle.getString("addNewProducts"));
 			if (continueAnswer.equals("y")) {
 
 			}else if (continueAnswer.equals("n")) {
 				break;
 			} else {
-				System.out.println("did not enter 'y' or 'n'");
+				System.out.println(bundle.getString("yesNoError"));
 			}
 		}
 		return cart;
