@@ -12,7 +12,7 @@
 </head>
 <body>
     <form method="post" class="inline">
-        <button type="submit" name="Lang" value="nb_No" class="link-button">
+        <button type="submit" name="Lang" value="nb" class="link-button">
             Norsk
         </button>
         <button type="submit" name="Lang" value="us">

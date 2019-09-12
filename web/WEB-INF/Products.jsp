@@ -10,12 +10,13 @@
 <html>
 <head>
     <title>Title</title>
+    <meta charset="UTF-8">
 </head>
 <body>
     <fmt:setLocale value = "${langLocale}"/>
     <fmt:setBundle basename = "productStrings" var="langu"/>
     <form method="post" class="inline">
-        <button type="submit" name="Lang" value="nb_No" class="link-button">
+        <button type="submit" name="Lang" value="nb" class="link-button">
             Norsk
         </button>
         <button type="submit" name="Lang" value="us" class="link-button">
