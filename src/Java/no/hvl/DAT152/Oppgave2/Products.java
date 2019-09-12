@@ -18,26 +18,10 @@ public class Products extends HttpServlet {
 
         if (langCookie != null) {
             locale = new Locale(langCookie.getValue());
-            bundle = ResourceBundle.getBundle("productStrings", locale);
-            req.setAttribute("whiteProdDesc", bundle.getString("whiteProdDesc"));
-            req.setAttribute("blackProdDesc", bundle.getString("blackProdDesc"));
-            req.setAttribute("yellowProdDesc", bundle.getString("yellowProdDesc"));
-            req.setAttribute("whitePrice", bundle.getString("whitePrice"));
-            req.setAttribute("blackPrice", bundle.getString("blackPrice"));
-            req.setAttribute("yellowPrice", bundle.getString("yellowPrice"));
-            req.setAttribute("whiteName", bundle.getString("whiteName"));
-            req.setAttribute("blackName", bundle.getString("blackName"));
-            req.setAttribute("yellowName", bundle.getString("yellowName"));
+            req.setAttribute("langLocale", locale);
+
         } else {
-            req.setAttribute("whiteProdDesc", bundle.getString("whiteProdDesc"));
-            req.setAttribute("blackProdDesc", bundle.getString("blackProdDesc"));
-            req.setAttribute("yellowProdDesc", bundle.getString("yellowProdDesc"));
-            req.setAttribute("whitePrice", bundle.getString("whitePrice"));
-            req.setAttribute("blackPrice", bundle.getString("blackPrice"));
-            req.setAttribute("yellowPrice", bundle.getString("yellowPrice"));
-            req.setAttribute("whiteName", bundle.getString("whiteName"));
-            req.setAttribute("blackName", bundle.getString("blackName"));
-            req.setAttribute("yellowName", bundle.getString("yellowName"));
+            req.setAttribute("langLocale", locale);
         }
         req.getRequestDispatcher("WEB-INF/Products.jsp").forward(req, resp);
     }

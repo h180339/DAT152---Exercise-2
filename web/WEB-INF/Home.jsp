@@ -25,7 +25,7 @@
 
 
     <h1>Kaffekopper AS</h1>
-    <img src="./assets/kopp.jpeg">
+    <img src="./assets/kopp.png">
     <br>
     <span>${welcomeText}<a href="./products">${prod}</a></span>
 </body>
