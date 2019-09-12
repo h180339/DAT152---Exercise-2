@@ -1,3 +1,4 @@
+<jsp:useBean id="title" scope="request" type="java"/>
 <%--
   Created by IntelliJ IDEA.
   User: JoakimJohesan
@@ -14,14 +15,19 @@
     <title>${title}</title>
 </head>
 <body>
-<h3>${cartTitle}</h3>
+<h1>${cartTitle}</h1>
+<fmt:setLocale value="${locale}"/>
+<fmt:setBundle basename="productStrings" var="lang"/>
+
+<c:if test="${not empty cartEmpty} ">
+    <p><fmt:message key="emptyCart" bundle="${lang}"/></p>
+</c:if>
 <c:forEach items="${cart}" var="product">
-    <p>${oroduct}</p>
+    <c:if test="${not empty cart} ">
+        <li><fmt:message key="${product.pName}" bundle="${lang}"/></li>
+    </c:if>
 </c:forEach>
 
-<h1>Kaffekopper AS</h1>
-<img src="./assets/kopp.png">
-<br>
-<span>${welcomeText}<a href="./products">${prod}</a></span>
+<h5>Kaffekopper AS</h5>
 </body>
 </html>

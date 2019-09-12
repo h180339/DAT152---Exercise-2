@@ -18,13 +18,15 @@ public class ServletCart extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		ResourceBundle bundle = LocaleHelper.getBundle(req);
 
+		req.setAttribute("locale", LocaleHelper.getLocaleString(req));
+
 		HttpSession session = req.getSession(false);
 		Cart cart = (Cart) session.getAttribute("cart");
 
 		if(cart != null && !cart.getCartList().isEmpty()) {
 			req.setAttribute("cart", cart.getCartList());
 		} else {
-			req.setAttribute("cart", bundle.getString("emptyCart"));
+			req.setAttribute("cartEmpty", bundle.getString("emptyCart"));
 		}
 
 		req.setAttribute("title", bundle.getString("cartTitle"));
