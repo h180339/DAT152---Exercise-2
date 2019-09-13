@@ -24,12 +24,11 @@ public class ServletCart extends HttpServlet {
 		Cart cart = (Cart) session.getAttribute("cart");
 
 		if(cart != null && !cart.getCartList().isEmpty()) {
+			req.setAttribute("cartEmpty", false);
 			req.setAttribute("cart", cart.getCartList());
 		} else {
-			req.setAttribute("cartEmpty", bundle.getString("emptyCart"));
+			req.setAttribute("cartEmpty", true);
 		}
-
-		req.setAttribute("title", bundle.getString("cartTitle"));
 
 		//Display page.
 		req.getRequestDispatcher("WEB-INF/Cart.jsp").forward(req, resp);
