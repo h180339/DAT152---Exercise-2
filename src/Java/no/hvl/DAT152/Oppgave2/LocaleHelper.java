@@ -1,5 +1,6 @@
 package no.hvl.DAT152.Oppgave2;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Locale;
@@ -22,5 +23,11 @@ public class LocaleHelper {
 
 	public static String getLocaleString(HttpServletRequest req) {
 		return req.getLocale().toString();
+	}
+
+	public static String getLang(HttpServletRequest req) {
+		Cookie[] cookies = req.getCookies();
+		Cookie langCookie = CookieHelper.findCookie(cookies, "lang");
+		return langCookie.getValue();
 	}
 }

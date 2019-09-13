@@ -42,7 +42,7 @@
                     <p><fmt:message key="whiteProdDesc" bundle="${langu}"/></p>
                     <p><fmt:message key="whitePrice" bundle="${langu}"/></p>
                     <p>${whitePrice}</p>
-                    <button type="submit" name="cup" value="whiteCup">Add to cart</button>
+                    <button type="submit" name="cup" value="whiteName">Add to cart</button>
                 </div>
             </td>
         </tr>
@@ -54,7 +54,7 @@
                     <p><fmt:message key="blackName" bundle="${langu}"/></p>
                     <p><fmt:message key="blackProdDesc" bundle="${langu}"/></p>
                     <p><fmt:message key="blackPrice" bundle="${langu}"/></p>
-                    <button type="submit" name="cup" value="blackCup">Add to cart</button>
+                    <button type="submit" name="cup" value="blackName">Add to cart</button>
                 </div>
             </td>
         </tr>
@@ -66,12 +66,15 @@
                     <p><fmt:message key="yellowName" bundle="${langu}"/></p>
                     <p><fmt:message key="yellowProdDesc" bundle="${langu}"/></p>
                     <p><fmt:message key="yellowPrice" bundle="${langu}"/></p>
-                    <button type="submit" name="cup" value="yellowCup">Add to cart</button>
+                    <button type="submit" name="cup" value="yellowName">Add to cart</button>
                 </div>
             </td>
         </tr>
     </table>
 </form>
-<span><a href="./home">${home}Home</a></span>
+<span>
+    <a href="./home"><fmt:message key="home" bundle="${langu}"/></a>
+    <a href="./cart"><fmt:message key="cart" bundle="${langu}"/></a>
+</span>
 </body>
 </html>
