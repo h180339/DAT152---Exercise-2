@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>Home</title>
+    <meta charset="UTF-8">
 </head>
 <body>
     <form method="post" class="inline">

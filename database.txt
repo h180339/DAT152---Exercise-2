@@ -1,3 +1,0 @@
-1;whiteName;whitePrice;img/WhiteCup.jpg;whiteProdDesc
-2;blackName;blackPrice;img/BlackCup.jpg;blackProdDesc
-3;yellowName;yellowPrice;img/YellowCup.jpg;yellowProdDesc

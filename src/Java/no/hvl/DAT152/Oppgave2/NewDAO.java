@@ -1,35 +1,30 @@
-package no.hvl.DAT152.Oppgave1;
+package no.hvl.DAT152.Oppgave2;
 
+import no.hvl.DAT152.Oppgave1.Product;
+
+import javax.servlet.ServletContext;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-/**
- * Database handler
- */
-public class DAO {
-
-	private static final String FILENAME = "web/WEB-INF/database.txt";
+public class NewDAO {
 
 
-    /**
-     * @return list of all products in database
-     */
-	public ArrayList<Product> getAllProducts() {
+    public ArrayList<Product> getAllProducts(ServletContext context) {
         ArrayList<Product> products = new ArrayList<>();
         try {
-            FileReader fileReader = new FileReader(FILENAME);
+            String filename = context.getRealPath("/WEB-INF/database.txt");
+            FileReader fileReader = new FileReader(filename);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
             String line;
 
             while ((line = bufferedReader.readLine()) != null) {
-                String [] a = line.split(";");
+                String[] a = line.split(";");
                 products.add(new Product(a[0], a[1], a[2], a[3], a[4]));
-                            }
-
-        } catch (IOException e) {
+            }
+        }catch (IOException e) {
             e.printStackTrace();
         }
         return products;

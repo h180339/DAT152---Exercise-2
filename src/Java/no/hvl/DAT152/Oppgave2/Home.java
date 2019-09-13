@@ -36,6 +36,4 @@ public class Home extends HttpServlet {
         resp.addCookie(cookie);
         resp.sendRedirect("./home");
     }
-
-
 }
