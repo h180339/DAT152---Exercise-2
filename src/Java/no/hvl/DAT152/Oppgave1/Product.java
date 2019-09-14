@@ -11,8 +11,7 @@ public class Product {
     private String priceInEuro;
     private String imageFile;
     private String resourceKey;
-
-
+    private int amount;
 
     public Product(String pNo, String pName, String priceInEuro, String imageFile, String resourceKey) {
         this.pNo = pNo;
@@ -20,6 +19,7 @@ public class Product {
         this.priceInEuro = priceInEuro;
         this.imageFile = imageFile;
         this.resourceKey = resourceKey;
+        this.amount = 1;
     }
 
     public String getpNo() {
@@ -62,7 +62,24 @@ public class Product {
         this.resourceKey = resourceKey;
     }
 
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+
     public String toString(ResourceBundle bundle) {
         return bundle.getString(this.getpName()) + " | " + bundle.getString(this.getPriceInEuro()) + " | " + bundle.getString(this.getResourceKey());
+    }
+
+    public boolean compareTo(Product product) {
+        if(this.pName.equals(product.getpName())) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

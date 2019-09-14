@@ -7,9 +7,12 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix='c' %>
 <html>
 <head>
-    <title>Title</title>
+    <fmt:setLocale value="${langLocale}"/>
+    <fmt:setBundle basename="productStrings" var="langu"/>
+    <title><fmt:message key="prod" bundle="${langu}"/></title>
     <meta charset="UTF-8">
     <style>
         .imag {
@@ -19,8 +22,6 @@
     </style>
 </head>
 <body>
-<fmt:setLocale value="${langLocale}"/>
-<fmt:setBundle basename="productStrings" var="langu"/>
 <form method="post" class="inline">
     <button type="submit" name="Lang" value="nb" class="link-button">
         Norsk

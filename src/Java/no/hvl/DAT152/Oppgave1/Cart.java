@@ -7,17 +7,28 @@ import java.util.ArrayList;
  */
 public class Cart {
 
-    private ArrayList<Product> cartList;
+	private ArrayList<Product> cartList;
 
-    public Cart() {
-        this.cartList = new ArrayList<>();
-    }
+	public Cart() {
+		this.cartList = new ArrayList<>();
+	}
 
-    public ArrayList<Product> getCartList() {
-        return cartList;
-    }
+	public ArrayList<Product> getCartList() {
+		return cartList;
+	}
 
-    public boolean addToCart(Product product) {
-        return cartList.add(product);
-    }
+	public void setCartList(ArrayList<Product> cartList) {
+		this.cartList = cartList;
+	}
+
+	public void addToCart(Product product) {
+		for(Product p : cartList) {
+			if(p.compareTo(product)) {
+				p.setAmount(p.getAmount() + 1);
+				return;
+			}
+		}
+		cartList.add(product);
+
+	}
 }
