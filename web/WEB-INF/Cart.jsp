@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix='c' %>
+<%@ taglib prefix="n" uri="/WEB-INF/customTags.tld" %>
 <%--
   Created by IntelliJ IDEA.
   User: JoakimJohesan
@@ -34,7 +35,8 @@
 </c:if>
 <c:forEach items="${cart}" var="product">
     <c:if test="${not empty cart}">
-        <li><fmt:message key="${product.pName}" bundle="${lang}"/> | <fmt:message key="${product.priceInEuro}" bundle="${lang}"/> | <fmt:message key="${product.resourceKey}" bundle="${lang}"/> |
+        <li><fmt:message key="${product.pName}" bundle="${lang}"/> | <fmt:message key="${product.priceInEuro}" bundle="${lang}"/> | <n:shortText><fmt:message key="${product.resourceKey}"
+                                                                                                                                                              bundle="${lang}"/></n:shortText> |
             <fmt:message key="amount" bundle="${lang}"/> ${product.amount}</li>
     </c:if>
 </c:forEach>
@@ -44,5 +46,6 @@
     <a href="./home"><fmt:message key="home" bundle="${lang}"/></a>
     <a href="./products"><fmt:message key="prod" bundle="${lang}"/></a>
 </span>
+<p><n:copyright/></p>
 </body>
 </html>
