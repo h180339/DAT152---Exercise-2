@@ -17,12 +17,14 @@ public class Home extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String langCookie = LocaleHelper.getLang(req);
 		Locale locale = req.getLocale();
-		if(langCookie != null) {
-			locale = new Locale(langCookie);
+		if (langCookie != null) {
+			String [] location = langCookie.split("_");
+			locale = new Locale(location[0], location[1]);
 			req.setAttribute("langLocale", locale);
 		} else {
 			req.setAttribute("langLocale", locale);
 		}
+
 
 		ResourceBundle bundle = ResourceBundle.getBundle("productStrings", locale);
 		req.setAttribute("welcomeText", bundle.getString("welcomeText"));

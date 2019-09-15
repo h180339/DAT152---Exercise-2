@@ -14,16 +14,17 @@
     <fmt:setLocale value="${langLocale}"/>
     <fmt:setBundle basename="productStrings" var="lang"/>
     <title><fmt:message key="cartTitle" bundle="${lang}"/></title>
+    <meta charset="UTF-8">
 </head>
 <body>
 <form method="post" class="inline">
-    <button type="submit" name="Lang" value="nb" class="link-button">
+    <button type="submit" name="Lang" value="no_NO" class="link-button">
         Norsk
     </button>
-    <button type="submit" name="Lang" value="us" class="link-button">
+    <button type="submit" name="Lang" value="en_US" class="link-button">
         Engelsk
     </button>
-    <button type="submit" name="Lang" value="es" class="link-button">
+    <button type="submit" name="Lang" value="es_ES" class="link-button">
         Spansk
     </button>
 </form>
@@ -32,13 +33,31 @@
 <c:if test="${cartEmpty}">
     <p><fmt:message key="emptyCart" bundle="${lang}"/></p>
 </c:if>
-<c:forEach items="${cart}" var="product">
-    <c:if test="${not empty cart}">
-        <li><fmt:message key="${product.pName}" bundle="${lang}"/> | <fmt:message key="${product.priceInEuro}" bundle="${lang}"/> | <fmt:message key="${product.resourceKey}" bundle="${lang}"/> |
-            <fmt:message key="amount" bundle="${lang}"/> ${product.amount}</li>
-    </c:if>
-</c:forEach>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Short description</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+    </tr>
 
+    <c:forEach items="${cart}" var="product">
+        <c:if test="${not empty cart}">
+            <tr>
+                <td><fmt:message key="${product.pName}" bundle="${lang}"/></td>
+                <td><fmt:message key="${product.resourceKey}" bundle="${lang}"/></td>
+                <td><fmt:message key="${product.priceInEuro}" bundle="${lang}"/></td>
+                <td><fmt:message key="amount" bundle="${lang}"/> ${product.amount} </td>
+                <td><fmt:formatNumber value="${product.totalPrice}" type="currency"/></td>
+            </tr>
+        </c:if>
+    </c:forEach>
+    <tr>
+        <td colspan="4" align="right"><fmt:message key="totAmount" bundle="${lang}"/></td>
+        <td align="right">${totalCartAmount}</td>
+    </tr>
+</table>
 <h5>Kaffekopper AS</h5>
 <span>
     <a href="./home"><fmt:message key="home" bundle="${lang}"/></a>

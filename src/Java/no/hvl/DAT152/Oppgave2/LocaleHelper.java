@@ -28,6 +28,17 @@ public class LocaleHelper {
 	public static String getLang(HttpServletRequest req) {
 		Cookie[] cookies = req.getCookies();
 		Cookie langCookie = CookieHelper.findCookie(cookies, "lang");
-		return langCookie.getValue();
+		return langCookie != null ? langCookie.getValue() : null;
+	}
+
+	public static Locale setLocale(String langCookie, Locale locale, HttpServletRequest req) {
+		if (langCookie != null) {
+			String [] location = langCookie.split("_");
+			locale = new Locale(location[0], location[1]);
+			req.setAttribute("langLocale", locale);
+		} else {
+			req.setAttribute("langLocale", locale);
+		}
+		return locale;
 	}
 }

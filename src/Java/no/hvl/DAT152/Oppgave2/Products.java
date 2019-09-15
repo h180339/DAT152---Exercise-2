@@ -22,12 +22,8 @@ public class Products extends HttpServlet {
         setImgAtr(req, prods);
         String langCookie = LocaleHelper.getLang(req);
         Locale locale = req.getLocale();
-        if (langCookie != null) {
-            locale = new Locale(langCookie);
-            req.setAttribute("langLocale", locale);
-        } else {
-            req.setAttribute("langLocale", locale);
-        }
+        LocaleHelper.setLocale(langCookie, locale, req);
+
         req.getRequestDispatcher("WEB-INF/Products.jsp").forward(req, resp);
     }
 

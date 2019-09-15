@@ -8,9 +8,11 @@ import java.util.ArrayList;
 public class Cart {
 
 	private ArrayList<Product> cartList;
+	private Double totalAmout;
 
 	public Cart() {
 		this.cartList = new ArrayList<>();
+		this.totalAmout = 0.0;
 	}
 
 	public ArrayList<Product> getCartList() {
@@ -29,6 +31,16 @@ public class Cart {
 			}
 		}
 		cartList.add(product);
+	}
 
+	public Double getTotalAmout() {
+		return totalAmout;
+	}
+
+	public void setTotalAmout(Double totalAmout) {
+		this.totalAmout = totalAmout;
+	}
+	public void addToTotalAmount(Double add) {
+		this.totalAmout += add;
 	}
 }

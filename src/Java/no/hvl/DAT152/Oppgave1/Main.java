@@ -38,7 +38,7 @@ public class Main {
 		System.out.println("--------------------------------------------------------");
 		for (Product p : prodList) {
 			System.out.println("Nr: " + p.getpNo());
-			System.out.println(bundle.getString(p.getpName()) + ": \n" + bundle.getString(p.getPriceInEuro()) + "\n" + bundle.getString(p.getResourceKey()));
+			System.out.println(bundle.getString(p.getpName()) + ": \n" + bundle.getString(p.getPriceInEuro()) + "\n" + bundle.getString("description") +  bundle.getString(p.getResourceKey()));
 			System.out.println("--------------------------------------------------------");
 		}
 
@@ -114,11 +114,11 @@ public class Main {
 				} else {
 					switch (number) {
 						case 1:
-							return "nb_NO";
+							return "no_NO";
 						case 2:
-							return "us";
+							return "en_US";
 						case 3:
-							return "ES";
+							return "es_ES";
 						default:
 							return "something went wrong";
 					}

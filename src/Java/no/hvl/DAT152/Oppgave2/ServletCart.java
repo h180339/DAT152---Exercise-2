@@ -19,18 +19,16 @@ public class ServletCart extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String langCookie = LocaleHelper.getLang(req);
 		Locale locale = req.getLocale();
-		if(langCookie != null) {
-			locale = new Locale(langCookie);
-			req.setAttribute("langLocale", locale);
-		} else {
-			req.setAttribute("langLocale", locale);
-		}
+		locale = LocaleHelper.setLocale(langCookie, locale, req);
+
 		HttpSession session = req.getSession(false);
 		Cart cart = (Cart) session.getAttribute("cart");
 
 		if(cart != null && !cart.getCartList().isEmpty()) {
 			req.setAttribute("cartEmpty", false);
-			req.setAttribute("cart", cart.getCartList());
+			Cart newCart = PriceHelper.getTotals(cart, locale);
+			req.setAttribute("totalCartAmount", cart.getTotalAmout());
+			req.setAttribute("cart", newCart.getCartList());
 		} else {
 			req.setAttribute("cartEmpty", true);
 		}

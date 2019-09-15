@@ -12,6 +12,7 @@ public class Product {
     private String imageFile;
     private String resourceKey;
     private int amount;
+    private Double totalPrice;
 
     public Product(String pNo, String pName, String priceInEuro, String imageFile, String resourceKey) {
         this.pNo = pNo;
@@ -20,6 +21,17 @@ public class Product {
         this.imageFile = imageFile;
         this.resourceKey = resourceKey;
         this.amount = 1;
+    }
+
+    public Double getTotalPrice() {
+        return this.totalPrice;
+    }
+
+    public void setTotalPrice(Double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+    public void addToTotalPrice(int addAmout) {
+        this.totalPrice += addAmout;
     }
 
     public String getpNo() {

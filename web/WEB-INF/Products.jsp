@@ -23,13 +23,13 @@
 </head>
 <body>
 <form method="post" class="inline">
-    <button type="submit" name="Lang" value="nb" class="link-button">
+    <button type="submit" name="Lang" value="no_NO" class="link-button">
         Norsk
     </button>
-    <button type="submit" name="Lang" value="us" class="link-button">
+    <button type="submit" name="Lang" value="en_US" class="link-button">
         Engelsk
     </button>
-    <button type="submit" name="Lang" value="es" class="link-button">
+    <button type="submit" name="Lang" value="es_ES" class="link-button">
         Spansk
     </button>
 </form>
@@ -40,7 +40,10 @@
                 <div>
                     <img src="${img0}" align="left" class="imag">
                     <p><fmt:message key="whiteName" bundle="${langu}"/></p>
-                    <p><fmt:message key="whiteProdDesc" bundle="${langu}"/></p>
+                    <span>
+                        <fmt:message key="description" bundle="${langu}"/>
+                        <fmt:message key="whiteProdDesc" bundle="${langu}"/>
+                    </span>
                     <p><fmt:message key="whitePrice" bundle="${langu}"/></p>
                     <p>${whitePrice}</p>
                     <button type="submit" name="cup" value="whiteName">Add to cart</button>
@@ -53,7 +56,10 @@
                 <div>
                     <img src="${img1}" align="left" class="imag">
                     <p><fmt:message key="blackName" bundle="${langu}"/></p>
-                    <p><fmt:message key="blackProdDesc" bundle="${langu}"/></p>
+                    <span>
+                        <fmt:message key="description" bundle="${langu}"/>
+                        <fmt:message key="blackProdDesc" bundle="${langu}"/>
+                    </span>
                     <p><fmt:message key="blackPrice" bundle="${langu}"/></p>
                     <button type="submit" name="cup" value="blackName">Add to cart</button>
                 </div>
@@ -65,7 +71,10 @@
                 <div>
                     <img src="${img2}" align="left" class="imag">
                     <p><fmt:message key="yellowName" bundle="${langu}"/></p>
-                    <p><fmt:message key="yellowProdDesc" bundle="${langu}"/></p>
+                    <span>
+                        <fmt:message key="description" bundle="${langu}"/>
+                        <fmt:message key="yellowProdDesc" bundle="${langu}"/>
+                    </span>
                     <p><fmt:message key="yellowPrice" bundle="${langu}"/></p>
                     <button type="submit" name="cup" value="yellowName">Add to cart</button>
                 </div>

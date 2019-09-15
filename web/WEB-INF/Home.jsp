@@ -17,13 +17,13 @@
 </head>
 <body>
     <form method="post" class="inline">
-        <button type="submit" name="Lang" value="nb" class="link-button">
+        <button type="submit" name="Lang" value="no_NO" class="link-button">
             Norsk
         </button>
-        <button type="submit" name="Lang" value="us">
+        <button type="submit" name="Lang" value="en_US">
             Engelsk
         </button>
-        <button type="submit" name="Lang" value="es">
+        <button type="submit" name="Lang" value="es_ES">
             Spansk
         </button>
     </form>
