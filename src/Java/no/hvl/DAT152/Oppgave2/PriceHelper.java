@@ -9,6 +9,9 @@ import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * pricehelper class
+ */
 public class PriceHelper {
     public static Cart getTotals(Cart cart, Locale locale) {
         ArrayList<Product> list = cart.getCartList();
