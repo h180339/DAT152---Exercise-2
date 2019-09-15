@@ -1,0 +1,15 @@
+<taglib>
+    <tlib-version>1.0</tlib-version>
+    <jsp-version>2.0</jsp-version>
+    <short-name>customTags</short-name>
+    <tag>
+        <name>copyright</name>
+        <tag-class>no.hvl.DAT152.Oppgave3.CopyrightTag</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+    <tag>
+        <name>shortText</name>
+        <tag-class>no.hvl.DAT152.Oppgave3.ShortTextTag</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+</taglib>

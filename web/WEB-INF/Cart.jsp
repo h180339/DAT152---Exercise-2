@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix='c' %>
+<%@ taglib prefix="n" uri="/WEB-INF/customTags.tld" %>
 <%--
   Created by IntelliJ IDEA.
   User: JoakimJohesan
@@ -63,5 +64,6 @@
     <a href="./home"><fmt:message key="home" bundle="${lang}"/></a>
     <a href="./products"><fmt:message key="prod" bundle="${lang}"/></a>
 </span>
+<p><n:copyright/></p>
 </body>
 </html>
