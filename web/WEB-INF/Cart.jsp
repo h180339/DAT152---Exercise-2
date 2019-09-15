@@ -47,10 +47,10 @@
         <c:if test="${not empty cart}">
             <tr>
                 <td><fmt:message key="${product.pName}" bundle="${lang}"/></td>
-                <td><fmt:message key="${product.resourceKey}" bundle="${lang}"/></td>
+                <td><n:shortText><fmt:message key="${product.resourceKey}" bundle="${lang}"/></n:shortText></td>
                 <td><fmt:message key="${product.priceInEuro}" bundle="${lang}"/></td>
                 <td><fmt:message key="amount" bundle="${lang}"/> ${product.amount} </td>
-                <td><fmt:formatNumber value="${product.totalPrice}" type="currency"/></td>
+                <td><fmt:formatNumber maxFractionDigits="2" value="${product.totalPrice}" type="currency"/></td>
             </tr>
         </c:if>
     </c:forEach>

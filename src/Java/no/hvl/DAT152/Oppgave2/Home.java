@@ -34,7 +34,7 @@ public class Home extends HttpServlet {
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		String wantedLang = req.getParameter("Lang");
 		Cookie cookie = new Cookie("lang", wantedLang);
 		resp.addCookie(cookie);

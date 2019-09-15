@@ -88,10 +88,6 @@ public class Product {
     }
 
     public boolean compareTo(Product product) {
-        if(this.pName.equals(product.getpName())) {
-            return true;
-        } else {
-            return false;
-        }
+        return this.pName.equals(product.getpName());
     }
 }

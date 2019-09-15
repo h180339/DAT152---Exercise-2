@@ -82,7 +82,7 @@ public class Main {
 	private static String shortText(String input, int length) {
 		StringBuilder stringBuilder = new StringBuilder(length + 4);
 		if(input.length() >= length) {
-			stringBuilder.append(input.substring(0, length));
+			stringBuilder.append(input, 0, length);
 			stringBuilder.append(" ...");
 			return stringBuilder.toString();
 		} else {
@@ -96,7 +96,7 @@ public class Main {
 	private static String coyprightString() {
 		int year = Year.now().getValue();
 
-		String romanYear = (String) RomanNumber.toRoman(year);
+		String romanYear = RomanNumber.toRoman(year);
 
 		return "© since MMVIII - " + romanYear + " HVL.";
 	}
