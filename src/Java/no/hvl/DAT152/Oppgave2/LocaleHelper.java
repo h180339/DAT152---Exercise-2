@@ -3,6 +3,7 @@ package no.hvl.DAT152.Oppgave2;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -13,6 +14,8 @@ import java.util.ResourceBundle;
  * @version 1.0.0
  */
 public class LocaleHelper {
+
+	private String[] locations = {"no_NO", "es_ES", "en_US"};
 
 
     /**
