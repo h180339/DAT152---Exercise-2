@@ -18,13 +18,13 @@
 <body>
     <form method="post" class="inline">
         <button type="submit" name="Lang" value="no_NO" class="link-button">
-            Norsk
+            <fmt:message key="norsk" bundle="${langu}"/>
         </button>
         <button type="submit" name="Lang" value="en_US">
-            Engelsk
+            <fmt:message key="engelsk" bundle="${langu}"/>
         </button>
         <button type="submit" name="Lang" value="es_ES">
-            Spansk
+            <fmt:message key="spansk" bundle="${langu}"/>
         </button>
     </form>
 

@@ -24,13 +24,13 @@
 <body>
 <form method="post" class="inline">
     <button type="submit" name="Lang" value="no_NO" class="link-button">
-        Norsk
+        <fmt:message key="norsk" bundle="${langu}"/>
     </button>
     <button type="submit" name="Lang" value="en_US" class="link-button">
-        Engelsk
+        <fmt:message key="engelsk" bundle="${langu}"/>
     </button>
     <button type="submit" name="Lang" value="es_ES" class="link-button">
-        Spansk
+        <fmt:message key="spansk" bundle="${langu}"/>
     </button>
 </form>
 <form method="post">
@@ -46,7 +46,7 @@
                     </span>
                     <p><fmt:message key="whitePrice" bundle="${langu}"/></p>
                     <p>${whitePrice}</p>
-                    <button type="submit" name="cup" value="whiteName">Add to cart</button>
+                    <button type="submit" name="cup" value="whiteName"><fmt:message key="addCart" bundle="${langu}"/></button>
                 </div>
             </td>
         </tr>
@@ -61,7 +61,7 @@
                         <fmt:message key="blackProdDesc" bundle="${langu}"/>
                     </span>
                     <p><fmt:message key="blackPrice" bundle="${langu}"/></p>
-                    <button type="submit" name="cup" value="blackName">Add to cart</button>
+                    <button type="submit" name="cup" value="blackName"><fmt:message key="addCart" bundle="${langu}"/></button>
                 </div>
             </td>
         </tr>
@@ -76,7 +76,7 @@
                         <fmt:message key="yellowProdDesc" bundle="${langu}"/>
                     </span>
                     <p><fmt:message key="yellowPrice" bundle="${langu}"/></p>
-                    <button type="submit" name="cup" value="yellowName">Add to cart</button>
+                    <button type="submit" name="cup" value="yellowName"><fmt:message key="addCart" bundle="${langu}"/></button>
                 </div>
             </td>
         </tr>
