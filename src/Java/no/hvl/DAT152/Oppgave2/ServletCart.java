@@ -12,9 +12,24 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Locale;
 
+
+/**
+ * A servlet that shows a web page where displaying a cart with selected coffee cups
+ *
+ * @author Gruppe 5
+ * @version 1.0.0
+ */
 @WebServlet(name = "Cart", urlPatterns = "/cart")
 public class ServletCart extends HttpServlet {
 
+	/**
+	 * Shows page where displaying a cart with selected coffee cups
+	 *
+	 * @param req
+	 * @param resp
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String langCookie = LocaleHelper.getLang(req);
@@ -36,6 +51,13 @@ public class ServletCart extends HttpServlet {
 		req.getRequestDispatcher("WEB-INF/Cart.jsp").forward(req, resp);
 	}
 
+	/**
+	 * Sets the wanted language for the page
+	 *
+	 * @param req
+	 * @param resp
+	 * @throws IOException
+	 */
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		String wantedLang = req.getParameter("Lang");

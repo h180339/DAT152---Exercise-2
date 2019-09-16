@@ -9,10 +9,20 @@ import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
 /**
- * pricehelper class
+ * Class that helps servlets handle prices in a cart object
+ *
+ * @author Gruppe 5
+ * @version 1.0.0
  */
 public class PriceHelper {
+
+    /**
+     * @param cart
+     * @param locale
+     * @return The total amount the cart is worth
+     */
     public static Cart getTotals(Cart cart, Locale locale) {
         ArrayList<Product> list = cart.getCartList();
         for (Product product : list) {

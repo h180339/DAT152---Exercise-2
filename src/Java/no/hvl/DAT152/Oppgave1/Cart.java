@@ -4,43 +4,74 @@ import java.util.ArrayList;
 
 /**
  * A class representing a cart where you can add products
+ *
+ * @author Gruppe 5
+ * @version 1.0.0
  */
 public class Cart {
 
-	private ArrayList<Product> cartList;
-	private Double totalAmout;
+    private ArrayList<Product> cartList;
+    private Double totalAmout;
 
-	public Cart() {
-		this.cartList = new ArrayList<>();
-		this.totalAmout = 0.0;
-	}
+    /**
+     * Constructs a new Cart
+     */
+    public Cart() {
+        this.cartList = new ArrayList<>();
+        this.totalAmout = 0.0;
+    }
 
-	public ArrayList<Product> getCartList() {
-		return cartList;
-	}
+    /**
+     * @return list of products that the cart contains
+     */
+    public ArrayList<Product> getCartList() {
+        return cartList;
+    }
 
-	public void setCartList(ArrayList<Product> cartList) {
-		this.cartList = cartList;
-	}
+    /**
+     * Sets the product list in the cart object
+     *
+     * @param cartList
+     */
+    public void setCartList(ArrayList<Product> cartList) {
+        this.cartList = cartList;
+    }
 
-	public void addToCart(Product product) {
-		for(Product p : cartList) {
-			if(p.compareTo(product)) {
-				p.setAmount(p.getAmount() + 1);
-				return;
-			}
-		}
-		cartList.add(product);
-	}
+    /**
+     * @param product Adds a product to the list of products in the cart
+     */
+    public void addToCart(Product product) {
+        for (Product p : cartList) {
+            if (p.compareTo(product)) {
+                p.setAmount(p.getAmount() + 1);
+                return;
+            }
+        }
+        cartList.add(product);
+    }
 
-	public Double getTotalAmout() {
-		return totalAmout;
-	}
+    /**
+     * @return the total amount the the cart is worth
+     */
+    public Double getTotalAmout() {
+        return totalAmout;
+    }
 
-	public void setTotalAmout(Double totalAmout) {
-		this.totalAmout = totalAmout;
-	}
-	public void addToTotalAmount(Double add) {
-		this.totalAmout += add;
-	}
+    /**
+     * Sets the total amount the cart is worth
+     *
+     * @param totalAmout Sets
+     */
+    public void setTotalAmout(Double totalAmout) {
+        this.totalAmout = totalAmout;
+    }
+
+    /**
+     * Adds to the total amount the cart is worth
+     *
+     * @param add
+     */
+    public void addToTotalAmount(Double add) {
+        this.totalAmout += add;
+    }
 }

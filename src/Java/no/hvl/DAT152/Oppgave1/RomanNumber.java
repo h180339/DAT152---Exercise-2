@@ -27,6 +27,12 @@ public class RomanNumber {
 
 	}
 
+	/**
+	 * Converts number into roman numeral
+	 *
+	 * @param number
+	 * @return number represented as a roman numeral
+	 */
 	public static String toRoman(int number) {
 		int l = map.floorKey(number);
 		if(number == l) {

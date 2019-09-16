@@ -6,11 +6,22 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 
+/**
+ * A class where Task 1 is run from
+ *
+ * @author Gruppe 5
+ * @version 1.0.0
+ */
 public class Main {
 
 	private static TerminalInterface ti = new TerminalInterface();
 	private static DAO dao = new DAO();
 
+	/**
+	 * Method where Task 1 is run
+	 *
+	 * @param args
+	 */
     public static void main(String[] args) {
         Cart cart = new Cart();
         //String lokasjonSvar = ti.query("please choose location (write number):\n1: Norway\n2: United States of America\n3: Spain");

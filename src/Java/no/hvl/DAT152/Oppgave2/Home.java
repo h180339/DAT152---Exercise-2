@@ -10,34 +10,56 @@ import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+
+/**
+ * A servlet that shows the home page of a website that sells coffee cups
+ *
+ * @author Gruppe 5
+ * @version 1.0.0
+ */
 @WebServlet(name = "Home", urlPatterns = "/home")
 public class Home extends HttpServlet {
 
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String langCookie = LocaleHelper.getLang(req);
-		Locale locale = req.getLocale();
-		if (langCookie != null) {
-			String [] location = langCookie.split("_");
-			locale = new Locale(location[0], location[1]);
-			req.setAttribute("langLocale", locale);
-		} else {
-			req.setAttribute("langLocale", locale);
-		}
+    /**
+     * Shows Home page of website
+     *
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String langCookie = LocaleHelper.getLang(req);
+        Locale locale = req.getLocale();
+        if (langCookie != null) {
+            String[] location = langCookie.split("_");
+            locale = new Locale(location[0], location[1]);
+            req.setAttribute("langLocale", locale);
+        } else {
+            req.setAttribute("langLocale", locale);
+        }
 
 
-		ResourceBundle bundle = ResourceBundle.getBundle("productStrings", locale);
-		req.setAttribute("welcomeText", bundle.getString("welcomeText"));
-		req.setAttribute("prod", bundle.getString("prod"));
+        ResourceBundle bundle = ResourceBundle.getBundle("productStrings", locale);
+        req.setAttribute("welcomeText", bundle.getString("welcomeText"));
+        req.setAttribute("prod", bundle.getString("prod"));
 
-		req.getRequestDispatcher("WEB-INF/Home.jsp").forward(req, resp);
-	}
+        req.getRequestDispatcher("WEB-INF/Home.jsp").forward(req, resp);
+    }
 
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		String wantedLang = req.getParameter("Lang");
-		Cookie cookie = new Cookie("lang", wantedLang);
-		resp.addCookie(cookie);
-		resp.sendRedirect("./home");
-	}
+    /**
+     * Sets the language that the user wants
+     *
+     * @param req
+     * @param resp
+     * @throws IOException
+     */
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        String wantedLang = req.getParameter("Lang");
+        Cookie cookie = new Cookie("lang", wantedLang);
+        resp.addCookie(cookie);
+        resp.sendRedirect("./home");
+    }
 }

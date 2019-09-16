@@ -2,8 +2,12 @@ package no.hvl.DAT152.Oppgave1;
 
 import java.util.ResourceBundle;
 
+
 /**
  * Class that describes a product
+ *
+ * @author Gruppe 5
+ * @version 1.0.0
  */
 public class Product {
     private String pNo;
@@ -14,6 +18,15 @@ public class Product {
     private int amount;
     private Double totalPrice;
 
+    /**
+     * Constructs new Product
+     *
+     * @param pNo
+     * @param pName
+     * @param priceInEuro
+     * @param imageFile
+     * @param resourceKey
+     */
     public Product(String pNo, String pName, String priceInEuro, String imageFile, String resourceKey) {
         this.pNo = pNo;
         this.pName = pName;
@@ -30,6 +43,7 @@ public class Product {
     public void setTotalPrice(Double totalPrice) {
         this.totalPrice = totalPrice;
     }
+
     public void addToTotalPrice(int addAmout) {
         this.totalPrice += addAmout;
     }

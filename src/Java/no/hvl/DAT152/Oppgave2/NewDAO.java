@@ -1,16 +1,24 @@
 package no.hvl.DAT152.Oppgave2;
 
 import no.hvl.DAT152.Oppgave1.Product;
-
 import javax.servlet.ServletContext;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * A class representing a database handler
+ *
+ * @author Gruppe 5
+ * @version 1.0.0
+ */
 public class NewDAO {
 
-
+    /**
+     * @param context
+     * @return all products in the database
+     */
     public ArrayList<Product> getAllProducts(ServletContext context) {
         ArrayList<Product> products = new ArrayList<>();
         try {
